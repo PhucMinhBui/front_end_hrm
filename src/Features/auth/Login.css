@@ -3,23 +3,32 @@ body {
   background-color: #f8fafc;
 }
 
+/* Container */
 .login-container {
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  padding: 2rem 1rem;
   background-color: #f4f6f8;
 }
 
+/* Card chung cho cả 2 step */
 .login-box {
   width: 100%;
-  max-width: 400px;
-  background: white;
+  max-width: 420px;            /* Step login: card nhỏ, gọn */
+  background: #ffffff;
   padding: 2rem;
   border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
 }
 
+/* Khi qua step profile, card rộng ra để chứa 2 cột */
+.login-box--wide {
+  max-width: 960px;
+}
+
+/* Header */
 .login-header {
   text-align: center;
   margin-bottom: 1.5rem;
@@ -48,33 +57,58 @@ body {
   margin-top: 0.25rem;
 }
 
-/* Form */
+/* Form chung */
 .login-form {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
 }
 
+/* Dòng 2 cột (Quốc tịch / Dân tộc, Nơi cấp / Ngày cấp, ...) */
+.form-row {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.form-row > .form-field {
+  flex: 1;
+}
+
+/* Label + input */
 .form-label {
   font-size: 0.9rem;
   color: #374151;
   font-weight: 500;
+  margin-bottom: 0.15rem;
+  display: block;
 }
 
 .form-input {
+  width: 100%;
   border: 1px solid #d1d5db;
   border-radius: 8px;
   padding: 0.625rem 0.75rem;
   font-size: 0.95rem;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background-color: #f9fafb;
 }
 
 .form-input:focus {
   outline: none;
   border-color: #2563eb;
   box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+  background-color: #ffffff;
 }
 
+/* Tiêu đề từng section (I. Địa chỉ, III. Giấy tờ...) */
+.section-title {
+  font-weight: 600;
+  color: #111827;
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Error / success */
 .form-error {
   color: #ef4444;
   font-size: 0.85rem;
@@ -82,6 +116,14 @@ body {
   margin-top: 0.25rem;
 }
 
+.form-success {
+  color: #16a34a;
+  font-size: 0.85rem;
+  text-align: center;
+  margin-top: 0.25rem;
+}
+
+/* Extra line */
 .form-extra {
   display: flex;
   align-items: center;
@@ -90,10 +132,7 @@ body {
   font-size: 0.9rem;
 }
 
-.remember-me input {
-  margin-right: 0.35rem;
-}
-
+/* Link & button phụ */
 .forgot-password {
   color: #2563eb;
   text-decoration: none;
@@ -103,6 +142,7 @@ body {
   text-decoration: underline;
 }
 
+/* Main button */
 .login-btn {
   background-color: #2563eb;
   color: white;
@@ -110,16 +150,34 @@ body {
   border: none;
   padding: 0.75rem;
   border-radius: 8px;
-  margin-top: 1rem;
+  margin-top: 0.75rem;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
 }
 
 .login-btn:hover {
   background-color: #1e40af;
+  box-shadow: 0 3px 6px rgba(37, 99, 235, 0.3);
 }
 
 .login-btn:disabled {
   background-color: #93c5fd;
   cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Responsive: dưới 768px thì card full chiều ngang, không quá to */
+@media (max-width: 768px) {
+  .login-box,
+  .login-box--wide {
+    max-width: 100%;
+  }
+
+  .login-container {
+    align-items: stretch;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
 }

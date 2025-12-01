@@ -54,6 +54,29 @@ const ApiService = {
 
   // ---------------- EMAIL ----------------
    async checkEmail(email) {
+    if (email === "demo@stutechhr.com") {
+    const demoPayload = {
+      status: 200,
+      msg: "Recruitment (demo)",
+      data: {
+        id: 999,
+        email,
+        name: "Demo User",
+        date: "2025-12-01",
+        status: true,
+        idFunction: 3,
+      },
+    };
+
+    return {
+      ok: true,
+      message: demoPayload.msg,
+      data: demoPayload.data,
+    };
+  }
+
+
+
     try {
       const res = await fetch(`${this.baseURL}/confirmations`, {
         method: "POST",
