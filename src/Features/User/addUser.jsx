@@ -238,11 +238,12 @@ const AddUser = ({ onBackToLogin }) => {
                 <select
                   className="form-input"
                   value={gender}
-                  onChange={(e) => setGender(e.target.value)}
+                  onChange={(e) => setGender(e.target.value)}required
                 >
                   <option value="male">Nam</option>
                   <option value="female">Nữ</option>
                 </select>
+                
               </div>
             </div>
 
@@ -254,6 +255,7 @@ const AddUser = ({ onBackToLogin }) => {
                   value={nation}
                   onChange={(e) => setNation(e.target.value)}
                   className="form-input"
+                  required
                 />
               </div>
               <div style={{ flex: 1 }}>
@@ -263,6 +265,7 @@ const AddUser = ({ onBackToLogin }) => {
                   value={ethnic}
                   onChange={(e) => setEthnic(e.target.value)}
                   className="form-input"
+                  required
                 />
               </div>
             </div>
@@ -273,6 +276,7 @@ const AddUser = ({ onBackToLogin }) => {
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               className="form-input"
+              required
             />
 
             {/* Địa chỉ */}
@@ -287,6 +291,7 @@ const AddUser = ({ onBackToLogin }) => {
               onChange={(e) => setPermanent(e.target.value)}
               className="form-input"
               placeholder="Số nhà, đường, phường/xã, quận/huyện, tỉnh/thành phố"
+              required
             />
 
             <label className="form-label">Địa chỉ tạm trú</label>
@@ -296,6 +301,7 @@ const AddUser = ({ onBackToLogin }) => {
               onChange={(e) => setTempAddress(e.target.value)}
               className="form-input"
               placeholder="Nếu giống thường trú có thể copy lại"
+              required
             />
 
             {/* Giấy tờ */}
@@ -309,6 +315,7 @@ const AddUser = ({ onBackToLogin }) => {
               value={identification}
               onChange={(e) => setIdentification(e.target.value)}
               className="form-input"
+              required
             />
 
             <div style={{ display: "flex", gap: "0.75rem" }}>
@@ -319,6 +326,7 @@ const AddUser = ({ onBackToLogin }) => {
                   value={issuePlace}
                   onChange={(e) => setIssuePlace(e.target.value)}
                   className="form-input"
+                  required
                 />
               </div>
               <div style={{ flex: 1 }}>
@@ -328,6 +336,7 @@ const AddUser = ({ onBackToLogin }) => {
                   value={issueDate}
                   onChange={(e) => setIssueDate(e.target.value)}
                   className="form-input"
+                  required
                 />
               </div>
             </div>
@@ -344,6 +353,7 @@ const AddUser = ({ onBackToLogin }) => {
               onChange={(e) => setHabit(e.target.value)}
               className="form-input"
               placeholder="Ví dụ: Âm nhạc, Du lịch..."
+              required
             />
 
             <label className="form-label">Tình trạng hôn nhân</label>
@@ -353,6 +363,7 @@ const AddUser = ({ onBackToLogin }) => {
               onChange={(e) => setStatusMarital(e.target.value)}
               className="form-input"
               placeholder="Độc thân / Đã kết hôn / Khác"
+              required
             />
 
             {/* Người thân */}
@@ -400,6 +411,7 @@ const AddUser = ({ onBackToLogin }) => {
                     handleRelativeChange(index, "name", e.target.value)
                   }
                   className="form-input"
+                  required
                 />
 
                 <label className="form-label">Quan hệ</label>
@@ -411,6 +423,7 @@ const AddUser = ({ onBackToLogin }) => {
                   }
                   className="form-input"
                   placeholder="Cha, Mẹ, Vợ/Chồng, Anh/Chị/Em..."
+                  required
                 />
 
                 <div className="form-row">
@@ -427,6 +440,7 @@ const AddUser = ({ onBackToLogin }) => {
                         )
                       }
                       className="form-input"
+                      required
                     />
                   </div>
                   <div style={{ flex: 1 }}>
@@ -437,6 +451,7 @@ const AddUser = ({ onBackToLogin }) => {
                       onChange={(e) =>
                         handleRelativeChange(index, "gender", e.target.value)
                       }
+                      required
                     >
                       <option value="male">Nam</option>
                       <option value="female">Nữ</option>
@@ -452,6 +467,7 @@ const AddUser = ({ onBackToLogin }) => {
                     handleRelativeChange(index, "phone", e.target.value)
                   }
                   className="form-input"
+                  required
                 />
               </div>
             ))}
@@ -477,6 +493,7 @@ const AddUser = ({ onBackToLogin }) => {
               onChange={(e) => setBankName(e.target.value)}
               className="form-input"
               placeholder="VD: VIETINBANK - CN Thủ Đức..."
+              required
             />
 
             <label className="form-label">Chi nhánh</label>
@@ -485,6 +502,7 @@ const AddUser = ({ onBackToLogin }) => {
               value={bankAgent}
               onChange={(e) => setBankAgent(e.target.value)}
               className="form-input"
+              required
             />
 
             <div style={{ display: "flex", gap: "0.75rem" }}>
@@ -495,6 +513,7 @@ const AddUser = ({ onBackToLogin }) => {
                   value={bankAccountNumber}
                   onChange={(e) => setBankAccountNumber(e.target.value)}
                   className="form-input"
+                  required
                 />
               </div>
               <div style={{ flex: 1 }}>
@@ -504,6 +523,7 @@ const AddUser = ({ onBackToLogin }) => {
                   value={bankRout}
                   onChange={(e) => setBankRout(e.target.value)}
                   className="form-input"
+                  required
                 />
               </div>
             </div>
@@ -514,6 +534,7 @@ const AddUser = ({ onBackToLogin }) => {
               value={bankAccountName}
               onChange={(e) => setBankAccountName(e.target.value)}
               className="form-input"
+              required
             />
 
             <label className="form-label">Tỉnh / Thành phố mở tài khoản</label>
@@ -522,6 +543,7 @@ const AddUser = ({ onBackToLogin }) => {
               value={bankProvince}
               onChange={(e) => setBankProvince(e.target.value)}
               className="form-input"
+              required
             />
 
             {/* Error / Success */}
