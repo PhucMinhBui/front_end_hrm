@@ -1,7 +1,7 @@
-// src/service/ApiService.js
+import { API_ENDPOINTS}  from "../env/apiEndpoint";
 
 const ApiService = {
-  baseURL: " http://192.168.1.8:8080",
+  baseURL: process.env.REACT_APP_API_BASE_URL || "http://localhost:8080",
   
 
   // ---------------- AUTH ----------------
@@ -38,7 +38,7 @@ const ApiService = {
 
     // 2️⃣ Gọi API thật → không chặn UI
     try {
-      const response = await fetch(`${this.baseURL}/auth/login`, {
+      const response = await fetch(API_ENDPOINTS.LOGIN, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(credentials)
@@ -78,22 +78,22 @@ const ApiService = {
 
 
     try {
-      const res = await fetch(`${this.baseURL}/confirmations`, {
+      const res = await fetch(API_ENDPOINTS.CONFIRM_EMAIL, {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
-        body: new URLSearchParams({ email }), // email=...
+        body: new URLSearchParams({ email }),
       });
 
-      const payload = await res.json(); // { status, msg, data }
+      const payload = await res.json(); 
       console.log("Payload API:", payload);
       const ok = res.ok && payload.status === 200;
 
       return {
         ok,
         message: payload.msg || "",
-        data: ok ? payload.data : null, // { id, email, name, ... }
+        data: ok ? payload.data : null, 
       };
     } catch (e) {
       return {
